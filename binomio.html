@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Binômio de Newton e Triângulo de Pascal</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script type="text/javascript" id="MathJax-script" async
+    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+</head>
+<body>
+  <div class="menuzao">
+    <nav class="sidebar">
+      <h2>Matrizes</h2>
+      <ul>
+        <li><a href="escalonamento.html">Escalonamento</a></li>
+        <li><a href="determinante.html">Determinante</a></li>
+        <li><a href="inversa.html">Matriz Inversa</a></li>
+      </ul>
+      <h2>Combinatória</h2>
+      <ul>
+        <li><a href="analise.html">Análise Combinatória</a></li>
+        <li><a href="binomio.html">Binômio de Newton</a></li>
+      </ul>
+    </nav>
+  </div>
+  <main class="body">
+    <h1>Binômio de Newton e Triângulo de Pascal</h1>
+
+    <div class="binomio-section">
+      <h2>Binômio de Newton</h2>
+      <p>Expansão de $(a+b)^n$</p>
+      <label for="expoenteN">Valor de 'n' (expoente):</label>
+      <input type="number" id="expoenteN" min="0" />
+      <button onclick="calcularBinomio()">Calcular Binômio</button>
+      <div id="resultadoBinomio" class="resultado-binomio"></div>
+    </div>
+
+    <div class="pascal-section">
+      <h2>Triângulo de Pascal</h2>
+      <label for="linhasPascal">Número de linhas:</label>
+      <input type="number" id="linhasPascal" min="1" max="15" value="5" />
+      <button onclick="gerarTrianguloPascal()">Gerar Triângulo</button>
+      <div id="trianguloPascal" class="triangulo-pascal"></div>
+    </div>
+  </main>
+  <script src="js/binomio.js"></script>
+  <script src="js/menu.js"></script>
+</body>
+</html>

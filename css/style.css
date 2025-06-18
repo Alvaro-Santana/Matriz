@@ -1,0 +1,767 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background: linear-gradient(to top, #2b2b2b, #3f3f3f);
+  color: #0a0909;
+  display: flex;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.menuzao {
+  width: 12%;
+  margin: 0;
+}
+
+.body {
+  width: 88%;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  color: white;
+}
+
+h1 {
+  margin: 20px 0;
+  font-size: 28px;
+  color: #ffffff;
+}
+
+h2 {
+  margin-top: 40px;
+  font-size: 22px;
+  color: #ececec;
+}
+
+div {
+  margin: 15px 0;
+  text-align: center;
+}
+
+#mg input[type="number"] {
+  text-align: center;
+  padding: 10px;
+  width: 50px;
+  font-size: 16px;
+  border: 2px solid #6b6b6b;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+.input-cima input[type="number"] {
+  padding: 10px;
+  width: 200px;
+  font-size: 16px;
+  border: 2px solid #6b6b6b;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+input[type="number"]:focus {
+  border-color: #6b6b6b;
+  outline: none;
+}
+
+#resolver {
+  margin-top: 20px;
+  padding: 12px 30px;
+  font-size: 16px;
+  background-color: #777777;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+}
+
+#resolver:hover {
+  background-color: #f0f0f0;
+  color: #2b2b2b;
+}
+
+button#gm {
+  margin-top: 20px;
+  padding: 12px 30px;
+  font-size: 16px;
+  background-color: #777777;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: background-color 0.3s ease;
+}
+
+button#gm:hover {
+  background-color: #f0f0f0;
+  color: #2b2b2b;
+}
+
+#mg {
+  margin-top: 20px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    min-height: 100px;
+    min-width: 15%;
+    width: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: auto;
+}
+
+#mg table {
+  margin: 0 auto;
+  border-collapse: collapse;
+}
+
+.modal, .erro {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+  background-color: white;
+  margin: 15% auto;
+  padding: 30px;
+  border: 1px solid #888;
+  width: 90%;
+  max-width: 400px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  text-align: center;
+}
+
+.modal-content button {
+  padding: 10px 20px;
+  margin: 10px;
+  font-size: 15px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button.confirm {
+  background-color: #3f3f3f;
+  color: white;
+}
+
+button.confirm:hover {
+  background-color: #424242;
+}
+
+button.cancel {
+  background-color: #e74c3c;
+  color: white;
+}
+
+button.cancel:hover {
+  background-color: #c0392b;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+.borda {
+  display: inline-block;
+  border: 1px solid #000;
+  padding: 4px 8px;
+  margin: 2px;
+  border-radius: 4px;
+  color: #333;
+}
+
+.sidebar {
+  width: 100%;
+  height: 100vh;
+  background-color: #e7e7e7;
+  color: #2b2b2b;
+  border-right: 1px solid #ccc;
+  font-family: Arial, sans-serif;
+  z-index: 999;
+  padding: 20px 15px;
+  margin: 0;
+  position: relative;
+}
+
+.sidebar h2 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  text-align: start;
+  color: #3b3b3b;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 15px;
+}
+
+.sidebar ul li a {
+  color: #202020;
+  text-decoration: none;
+  font-size: 16px;
+  display: block;
+  padding: 10px 10px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  text-align: start;
+}
+
+.sidebar ul li a:hover {
+  background-color: #e0e0e0;
+}
+
+#resultado {
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 20px;
+  margin-left: 0;
+  width: 100%;
+}
+
+.passo-container {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  background-color: #f9f9f9;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.3s ease, opacity 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transform: scale(0.9);
+  opacity: 0.7;
+  cursor: pointer;
+  max-width: 300px;
+  min-width: 150px;
+  flex-basis: auto;
+  color: #333;
+}
+
+.passo-resolucao-texto {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  margin-bottom: 10px;
+  text-align: center;
+  font-size: 0.9em;
+  line-height: 1.3;
+}
+
+.passo-container.final-result-container {
+  transform: scale(1.05);
+  opacity: 1;
+  border-color: #252525;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+.passo-container.final-result-container .passo-resolucao-texto {
+  font-weight: bold;
+  color: #252525;
+}
+
+.passo-container.selected-step-container {
+  transform: scale(1.1);
+  opacity: 1;
+  background-color: #e6f2ff;
+  border: 2px solid #007bff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+}
+
+.passo-container table {
+  margin: 0 auto;
+  border-collapse: collapse;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.passo-container table td {
+  padding: 0;
+}
+
+.passo-container .borda {
+  border: 1px solid #ccc;
+  padding: 4px 6px;
+  margin: 0.5px;
+  border-radius: 4px;
+  min-width: 35px;
+  text-align: center;
+  display: inline-block;
+  box-sizing: border-box;
+  font-size: 0.9em;
+  color: #333;
+}
+
+.menu-toggle {
+  position: fixed;
+  top: 15px;
+  left: 15px;
+  z-index: 1001;
+  background-color: #777777;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1.5em;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 998px) {
+  body {
+    padding: 20px;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  h1 {
+    font-size: 1.8em;
+    margin-top: 60px;
+  }
+
+  h2 {
+    font-size: 1.5em;
+    margin-top: 20px;
+  }
+
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    padding-top: 60px;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  .sidebar h2 {
+    text-align: center;
+    font-size: 1.6em;
+  }
+
+  .sidebar ul li a {
+    padding: 12px 20px;
+    font-size: 1.1em;
+  }
+
+  .menu-toggle {
+    display: block;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    z-index: 1001;
+    background-color: #777777;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 1.5em;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  }
+
+  .input-cima {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+    width: 100%;
+    max-width: 400px;
+  }
+
+  .input-cima label {
+    width: 100%;
+    text-align: center;
+  }
+
+  .input-cima input[type="number"] {
+    width: 80%;
+    max-width: 250px;
+    font-size: 1.1em;
+    padding: 12px;
+    text-align: center;
+  }
+
+  #resolver, button#gm {
+    width: 80%;
+    max-width: 250px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    margin-top: 15px;
+  }
+
+  #mg {
+    min-width: 50%;
+    width: auto;
+    padding: 15px;
+  }
+
+  #mg input[type="number"] {
+    width: 45px;
+    height: 45px;
+    font-size: 1em;
+    padding: 8px;
+  }
+
+  #mg table td .input-cell {
+    width: 45px;
+    height: 45px;
+  }
+
+  #resultado {
+    padding: 15px;
+    gap: 15px;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .passo-container {
+    min-width: unset;
+    max-width: 95%;
+    font-size: 0.9em;
+  }
+
+  .passo-container .borda {
+    padding: 3px 5px;
+    margin: 0.5px;
+    min-width: 30px;
+    font-size: 0.8em;
+  }
+}
+
+.combinatoria-container {
+    display: flex;
+    flex-wrap: wrap; 
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+    width: 90%;
+    max-width: 1200px;
+}
+
+.input-section {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 100%; 
+    max-width: 350px; 
+    color: #333;
+}
+
+.input-section h2 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.input-section label {
+    color: #333;
+    font-weight: bold;
+}
+
+.input-section input[type="number"] {
+    padding: 10px;
+    width: 100px;
+    font-size: 1em;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.input-section button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #777777;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.input-section button:hover {
+    background-color: #f0f0f0;
+    color: #2b2b2b;
+}
+
+.resultado-combinatoria {
+    margin-top: 15px;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #007bff;
+    min-height: 25px; 
+}
+
+
+.resultado-combinatoria-passo {
+    background-color: #e9e9e9; 
+    border: 1px solid #d0d0d0;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 8px; /* Space between steps */
+    text-align: left;
+    width: 95%; 
+    max-width: 450px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.resultado-combinatoria-passo p {
+    margin: 3px 0; 
+    color: #444;
+    font-size: 0.95em;
+}
+
+.resultado-combinatoria-passo strong {
+    color: #2b2b2b; 
+}
+
+.final-result-combinatoria {
+    background-color: #d4edda; 
+    border-color: #28a745; 
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #155724; 
+    margin-top: 20px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0,123,255,0.2); 
+}
+
+
+.resultado-combinatoria {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px; 
+    margin-top: 15px;
+    width: 100%;
+
+}
+
+@media (max-width: 768px) {
+    .combinatoria-container {
+        flex-direction: column; 
+        align-items: center;
+    }
+}
+
+/* Styles for Binomial Steps */
+.resultado-binomio {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px; /* Space between step divs */
+    margin-top: 15px;
+    width: 100%;
+}
+
+.resultado-binomio-passo {
+    background-color: #e9e9e9;
+    border: 1px solid #d0d0d0;
+    border-radius: 5px;
+    padding: 12px;
+    text-align: left;
+    width: 95%;
+    max-width: 550px; /* Wider for binomial expressions */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+}
+
+.resultado-binomio-passo p {
+    margin: 5px 0;
+    color: #444;
+    font-size: 1em;
+    line-height: 1.4; /* Improve readability for formulas */
+}
+
+.resultado-binomio-passo strong {
+    color: #2b2b2b;
+}
+
+.final-result-binomio {
+    background-color: #d1ecf1; /* Light blue for final result */
+    border-color: #007bff; /* Blue border */
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #0c5460;
+    margin-top: 25px;
+    padding: 18px;
+    box-shadow: 0 4px 10px rgba(0,123,255,0.3);
+}
+
+.error-binomio-step {
+    background-color: #f8d7da; /* Reddish for errors */
+    border-color: #dc3545;
+    color: #721c24;
+}
+
+.error-message { /* For Pascal triangle error */
+    color: #721c24;
+    background-color: #f8d7da;
+    border: 1px solid #dc3545;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+
+/* binomio.html specific styles */
+.binomio-section, .pascal-section {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    width: 90%;
+    max-width: 600px;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.binomio-section h2, .pascal-section h2 {
+    color: #333;
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.binomio-section p {
+    margin-bottom: 15px;
+    font-style: italic;
+    color: #555;
+}
+
+.binomio-section label, .pascal-section label {
+    color: #333;
+    font-weight: bold;
+}
+
+.binomio-section input[type="number"], .pascal-section input[type="number"] {
+    padding: 10px;
+    width: 100px;
+    font-size: 1em;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.binomio-section button, .pascal-section button {
+    padding: 10px 20px;
+    font-size: 1em;
+    background-color: #777777;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.binomio-section button:hover, .pascal-section button:hover {
+    background-color: #f0f0f0;
+    color: #2b2b2b;
+}
+
+.resultado-binomio {
+    margin-top: 15px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #007bff;
+    min-height: 30px;
+    text-align: center;
+    width: 100%;
+    overflow-x: auto; /* For long binomial expansions */
+}
+
+.triangulo-pascal {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: 'Courier New', Courier, monospace; /* Monospace for alignment */
+    font-size: 1.1em;
+}
+
+.pascal-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 5px;
+}
+
+.pascal-number {
+    display: inline-block;
+    min-width: 30px; /* Ensure numbers align well */
+    text-align: center;
+    padding: 3px 0;
+    color: #333;
+}
+
+/* Adjustments for smaller screens */
+@media (max-width: 768px) {
+    .binomio-section, .pascal-section {
+        padding: 15px;
+    }
+
+    .binomio-section input[type="number"], .pascal-section input[type="number"] {
+        width: 80px;
+    }
+
+    .triangulo-pascal {
+        font-size: 0.9em;
+    }
+
+    .pascal-number {
+        min-width: 25px;
+    }
+}

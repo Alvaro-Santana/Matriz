@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Matriz - Escalonamento</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="menuzao">
+    <nav class="sidebar">
+      <h2>Matrizes</h2>
+      <ul>
+        <li><a href="escalonamento.html">Escalonamento</a></li>
+        <li><a href="determinante.html">Determinante</a></li>
+        <li><a href="inversa.html">Matriz Inversa</a></li>
+      </ul>
+    <h2>Combinatória</h2>
+      <ul>
+        <li><a href="analise.html">Análise Combinatória</a></li>
+        <li><a href="binomio.html">Binômio de Newton</a></li>
+      </ul>
+    </nav>
+  </div>
+  <main class="body">
+    <h1>Matriz - Escalonamento</h1>
+    <div class="input-cima">
+      <label>Colunas:</label>
+      <input type="number" id="emY" />
+      <label>Linhas:</label>
+      <input type="number" id="emX" />
+      <button id="gm">Gerar Matriz</button>
+    </div>
+    <div id="mg"></div>
+    <button id="resolver">Resolver</button>
+    <div id="resultado"></div>
+  </main>
+  <script src="js/matrizJS.js"></script>
+  <script src="js/escalonamento.js"></script>
+  <script src="js/menu.js"></script>
+</body>
+</html>
